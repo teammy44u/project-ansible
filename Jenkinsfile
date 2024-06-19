@@ -26,7 +26,7 @@ pipeline{
         stage('publish to ansible server'){
             steps{
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ansibleserver', transfers: \
-                [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd ansible-dev', \
+                [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd ansible-dev; unzip -o ansible-${BUILD_ID}.zip; rm -rf ansible-${BUILD_ID}.zip', \
                 execTimeout: 121000, \
                 flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', \
                 remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', \
