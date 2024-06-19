@@ -18,9 +18,9 @@ pipeline{
         }
         stage('upload artifacts to jfrog'){
             steps{
-                sh 'curl -uadmin:AP8gcgmmset5jeYChTJYDN6XmDd \
+                'sh curl -uadmin:AP8gcgmmset5jeYChTJYDN6XmDd \
                 -T ansible-dev/ansible-${BUILD_ID}.zip \
-                "http://ec2-54-84-11-183.compute-1.amazonaws.com:8081/artifactory/ansible2/ansible-${BUILD_ID}.ZIP"'
+                "http://ec2-18-234-30-21.compute-1.amazonaws.com:8081/artifactory/ansible3/ansible-${BUILD_ID}.zip"'
             }
         }
         stage('publish to ansible server'){
