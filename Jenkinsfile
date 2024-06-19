@@ -26,11 +26,11 @@ pipeline{
         stage('publish to ansible server'){
             steps{
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'ansibleserver', transfers: \
-                [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd ansible', \
+                [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'cd ansible-dev', \
                 execTimeout: 121000, \
                 flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', \
                 remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', \
-                sourceFiles: 'ansible/ansible-${BUILD_ID}.zip')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sourceFiles: 'ansible-dev/ansible-${BUILD_ID}.zip')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
